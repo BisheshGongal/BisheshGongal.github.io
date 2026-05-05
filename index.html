@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bishesho Gongal | Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #222;
+      background: #f7f8fb;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: #1f4fd8;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #1f4fd8;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.1rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #1f4fd8;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #173ca3;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 2px solid #1f4fd8;
+      color: #1f4fd8;
+    }
+
+    .btn-outline:hover {
+      background: #1f4fd8;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 5rem 0 4rem;
+      background: linear-gradient(135deg, #eef3ff, #ffffff);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: #e0e9ff;
+      color: #1f4fd8;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: 1.05;
+      margin-bottom: 1rem;
+      color: #111827;
+    }
+
+    .hero h1 span {
+      color: #1f4fd8;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #4b5563;
+      max-width: 650px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .profile-card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.5rem;
+      box-shadow: 0 20px 50px rgba(31, 79, 216, 0.12);
+      border: 1px solid #e5e7eb;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 170px;
+      height: 170px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1f4fd8, #6d8dff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 3.5rem;
+      font-weight: 800;
+    }
+
+    .profile-card h3 {
+      margin-bottom: 0.35rem;
+    }
+
+    .profile-card p {
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .status {
+      margin-top: 1rem;
+      display: inline-block;
+      background: #dcfce7;
+      color: #166534;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: #111827;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      color: #6b7280;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
+    }
+
+    .card h3 {
+      margin-bottom: 0.75rem;
+      color: #111827;
+    }
+
+    .card p,
+    .card li {
+      color: #4b5563;
+    }
+
+    .quick-list {
+      list-style: none;
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .quick-list li {
+      padding: 0.7rem;
+      border-radius: 12px;
+      background: #f3f6ff;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .skill-box {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 1.2rem;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(17, 24, 39, 0.05);
+    }
+
+    .skill-box h3 {
+      margin-bottom: 0.5rem;
+      color: #1f4fd8;
+    }
+
+    .skill-box p {
+      color: #4b5563;
+      font-size: 0.95rem;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
+      transition: 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .project-img {
+      height: 150px;
+      background: linear-gradient(135deg, #1f4fd8, #9bb2ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 2.5rem;
+      font-weight: 800;
+    }
+
+    .project-content {
+      padding: 1.2rem;
+    }
+
+    .project-content h3 {
+      margin-bottom: 0.6rem;
+    }
+
+    .project-content p {
+      color: #4b5563;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: #eef3ff;
+      color: #1f4fd8;
+      border-radius: 999px;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* Contact */
+    .contact-box {
+      background: #111827;
+      color: white;
+      border-radius: 24px;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .contact-box p {
+      color: #d1d5db;
+      margin-top: 0.75rem;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .contact-links a {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 0.8rem 1rem;
+      border-radius: 14px;
+      color: white;
+      font-weight: 700;
+    }
+
+    .contact-links a:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: #6b7280;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid,
+      .about-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#home" class="logo">Bishesho Gongal</a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Virginia Tech Computer Science Student</span>
+          <h1>Designing and building <span>useful digital experiences.</span></h1>
+          <p>
+            I am a Computer Science student interested in software development, UI/UX design,
+            human-computer interaction, and building technology that is clear, practical, and user-friendly.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="avatar">BG</div>
+          <h3>Bishesho Gongal</h3>
+          <p>CS Student | UI/UX & Software Development</p>
+          <span class="status">Open to internships</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About Me</h2>
+          <p>A short introduction that helps employers understand who I am and what I am building toward.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card">
+            <h3>Who I Am</h3>
+            <p>
+              I am a Computer Science student at Virginia Tech with an interest in creating software that solves real problems.
+              My work connects programming, user experience, technical communication, and practical product thinking.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>What I Focus On</h3>
+            <ul class="quick-list">
+              <li>Building clean and understandable software projects</li>
+              <li>Designing interfaces around real user needs</li>
+              <li>Learning professional tools like Git, Linux, Figma, and development workflows</li>
+              <li>Communicating technical ideas clearly through writing and visuals</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-title">
+          <h2>Skills</h2>
+          <p>Technical and design skills that support my software and HCI work.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-box">
+            <h3>Programming</h3>
+            <p>C, Java, Python, HTML, CSS</p>
+          </div>
+          <div class="skill-box">
+            <h3>Tools</h3>
+            <p>Git, Linux, VS Code, MATLAB</p>
+          </div>
+          <div class="skill-box">
+            <h3>UI/UX</h3>
+            <p>Wireframes, prototypes, accessibility, user flows</p>
+          </div>
+          <div class="skill-box">
+            <h3>Communication</h3>
+            <p>Technical writing, research, documentation</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-title">
+          <h2>Featured Projects</h2>
+          <p>A few projects that show my interests in software development, design, data, and technical systems.</p>
+        </div>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-img">01</div>
+            <div class="project-content">
+              <h3>Delivery Drone System</h3>
+              <p>
+                A drone delivery concept using Pixhawk, servo motors, and hardware/software integration for controlled package delivery.
+              </p>
+              <div class="tags">
+                <span class="tag">Drone</span>
+                <span class="tag">Pixhawk</span>
+                <span class="tag">Systems</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img">02</div>
+            <div class="project-content">
+              <h3>Personal Finance Manager</h3>
+              <p>
+                A Python project for tracking spending, organizing transactions, and visualizing personal finance data.
+              </p>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">Data</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-img">03</div>
+            <div class="project-content">
+              <h3>Data Privacy Fact Sheet</h3>
+              <p>
+                A user-centered communication project that explains data privacy and cyber safety for senior citizens using clear analogies.
+              </p>
+              <div class="tags">
+                <span class="tag">HCI</span>
+                <span class="tag">Accessibility</span>
+                <span class="tag">Writing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <h2>Let’s Connect</h2>
+            <p>
+              I am looking for internship opportunities in software development, UI/UX, and technology-focused roles.
+            </p>
+          </div>
+          <div class="contact-links">
+            <a href="mailto:your-email@example.com">Email: your-email@example.com</a>
+            <a href="https://www.linkedin.com/in/your-linkedin" target="_blank">LinkedIn Profile</a>
+            <a href="https://github.com/your-github" target="_blank">GitHub Profile</a>
+            <a href="resume.pdf" target="_blank">View Resume</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Bishesho Gongal. Built as a personal portfolio website.</p>
+    </div>
+  </footer>
+</body>
+</html>
